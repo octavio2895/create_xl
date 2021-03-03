@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <launch>
-  <arg name="config" default="$(find ca_driver)/config/default.yaml" />
+  <arg name="config" default="$(find ca_driver)/config/default.yaml" /> 
   <arg name="desc" default="true" />
-
   <node name="ca_driver" pkg="ca_driver" type="ca_driver" output="screen">
     <rosparam command="load" file="$(arg config)" />
     <param name="robot_model" value="CREATE_2" />
@@ -12,7 +11,7 @@
 
   <node pkg="create_motion" type="create_fix_odom.py" name="create_fix_odom" />
 
-  <node name="decelerator" pkg="create_motion" type="decelerator.py" output="screen">
+   <node name="decelerator" pkg="create_motion" type="decelerator.py" output="screen">
     <param name="linear_acc" type="double" value="10" />
     <param name="acc_lin_x" type="double" value="1.0" />
     <param name="acc_rot_z" type="double" value="8.0" />
@@ -20,7 +19,6 @@
     <remap from="cmd_vel_in" to="cmd_vel"/>
     <remap from="cmd_vel_out" to="cmd_vel_dec"/>
   </node>
-
   <!-- Robot description -->
   <include if="$(arg desc)" file="$(find create_description)/launch/create_xl.launch" />
 

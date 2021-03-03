@@ -2,8 +2,8 @@
 
   <master auto="start"/>
    
-  <arg name="cmd_vel_topic" default="/cmd_vel" />
-  <arg name="odom_topic" default="/odom" />
+  <arg name="cmd_vel_topic" default="/cmd_vel/managed" />
+  <arg name="odom_topic" default="/cam_T/odom/sample" />
 
   <!-- <include file="$(find create_camera)/launch/depth_converter.launch"/> -->
 

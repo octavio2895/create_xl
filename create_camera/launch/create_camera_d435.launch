@@ -3,7 +3,7 @@
 
     <include file="$(find realsense2_camera)/launch/rs_camera.launch">
       <arg name="camera" value="camera"/>
-      <arg name="serial_no" value="933322073325"/>
+      <arg name="serial_no" value="035622251146"/>
       <arg name="align_depth" value="true"/>
       <arg name="initial_reset" value="true"/>
       <arg name="enable_sync" value="true"/>
@@ -16,9 +16,12 @@
       <remap from="camera_info" to="/camera/depth/camera_info"/>
       <remap from="scan"        to="/scan"/>
       <param name="range_max" type="double" value="4"/>
+      <param name="scan_height" type="int" value="100"/>
+
     </node>
 
     <node pkg="tf2_ros" type="static_transform_publisher" name="base_to_camera_D_screw" args="0.0105 0.0 0.408 0.0 0.0 0.0 base_link d435_bottom_screw_frame" />
+    <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="laser_frame_fix" args="0.0 0.0 0.0 0.0 0.0 0.0 odom scan_link" /> -->
     <node pkg="tf2_ros" type="static_transform_publisher" name="camera_D_screw_to_camera" args="0.0 0.0175 0.0125 0.0 0.0 0.0 d435_bottom_screw_frame camera_link" />
 
 </launch>
